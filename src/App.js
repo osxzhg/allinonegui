@@ -3,6 +3,7 @@ import './App.css';
 import { GetTemperature } from './GetTemperature';
 
 function App() {
+  let output=process.env.NODE_ENV;
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learning React is funny
+          {output}
         </a>
         <GetTemperature />
       </header>
