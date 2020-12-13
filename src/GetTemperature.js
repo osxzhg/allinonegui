@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {BASE_URL} from './config/endpoints'
+import ENDPOINTS from './config/endpoints'
 
 export class GetTemperature extends Component{
     constructor(props){
@@ -13,7 +15,7 @@ export class GetTemperature extends Component{
         this.loadData();
     }
     loadData=()=>{
-        let url='https://addtwoweb.azurewebsites.net/weatherforecast';
+        let url=BASE_URL+ENDPOINTS.GET_TEMPERATURES;
         //let url='http://localhost:12972/weatherforecast';
 
         fetch(url)
