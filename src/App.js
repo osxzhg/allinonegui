@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { GetTemperature } from './GetTemperature';
+import { Button } from 'antd';
 
 function App() {
   let output=process.env.NODE_ENV;
@@ -20,6 +21,7 @@ function App() {
           {output}
         </a>
         <GetTemperature />
+        <Button type="primary">Button</Button>
       </header>
     </div>
   );
