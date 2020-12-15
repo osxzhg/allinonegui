@@ -3,11 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import moment from "moment";
+import { IntlProvider } from "react-intl";
+import message_en from "./i18n/transactions/en.json";
+import message_cn from "./i18n/transactions/cn.json";
+
+// moment.locale(navigator.language);
+moment.locale('fr');
+
+
+const messages = {
+  "en": message_en,
+  "zh": message_cn,
+};
+
+let language = navigator.language.split(/[-_]/)[0];
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <IntlProvider
+    locale={language}
+    defaultLocale="en"
+    messages={messages[language]}>    
     <App />
-  </React.StrictMode>,
+  </IntlProvider>,
   document.getElementById('root')
 );
 
