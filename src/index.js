@@ -7,6 +7,7 @@ import moment from "moment";
 import { IntlProvider } from "react-intl";
 import message_en from "./i18n/transactions/en.json";
 import message_cn from "./i18n/transactions/cn.json";
+import Hello from "./Hello";
 
 // moment.locale(navigator.language);
 moment.locale('fr');
@@ -17,6 +18,8 @@ const messages = {
   "zh": message_cn,
 };
 
+const element=<div><p>hello</p></div>;
+
 let language = navigator.language.split(/[-_]/)[0];
 
 
@@ -25,10 +28,17 @@ ReactDOM.render(
     locale={language}
     defaultLocale="en"
     messages={messages[language]}>    
+    <Hello toWhat='World'/>
     <App />
   </IntlProvider>,
   document.getElementById('root')
 );
+// ReactDOM.render(
+//   <Hello toWhat='World'></Hello>,
+//   document.getElementById('root')
+// );
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
