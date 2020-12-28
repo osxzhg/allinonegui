@@ -28,7 +28,6 @@ ReactDOM.render(
     locale={language}
     defaultLocale="en"
     messages={messages[language]}>    
-    <Hello toWhat='World'/>
     <App />
   </IntlProvider>,
   document.getElementById('root')

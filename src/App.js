@@ -7,12 +7,21 @@ import moment from "moment";
 import 'moment/locale/zh-cn';
 import 'moment/locale/en-gb'
 import 'moment/locale/fr';
-import { useState } from "react";
+import { useState} from "react";
 import { useHotkeys} from "react-hotkeys-hook";
+import Users from "./users/Users";
+import Hello from "./Hello";
+import { useForm } from './useForm';
 
 
 function App() {
   const [count,setCount] = useState(0);
+  const [showHello, setShowHello] = useState(true);
+  const [values,handleChange] = useForm({
+    email: "",
+    firstName: ""
+  });
+
   useHotkeys('alt+1',()=>setCount(prevCount=>prevCount+1));
   useHotkeys('alt+2',()=>setCount(prevCount=>prevCount-1));
   useHotkeys('alt+3',()=>{navigator.clipboard.writeText("alt3")});
@@ -39,11 +48,9 @@ const element =
   return (
     
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <button onClick={()=> setShowHello(!showHello)}>toggle</button>
+      {showHello && <Hello />}
+        <Users title= "Users List"/>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -61,9 +68,8 @@ const element =
         <Button type="primary">Button</Button>
         Presssed {count} times.
         <p> Are You Smart?</p>
-					<input type="text" value={answer} onKeyPress={handleAnswerChange}/>
+					<input name="email" value={values.email} onKeyPress={handleAnswerChange} onChange={handleChange}/>
 				<small> Press Y for Yes or N for No</small>
-      </header>
     </div>
   );
 }

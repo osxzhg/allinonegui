@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 
-class Hello extends React.Component {
-    render() {
-      return <div>Hello {this.props.toWhat}</div>;
+export const Hello = () => {
+
+  const [name,Setname]  = useState(0);
+  useEffect(() => {
+    // console.log("render");
+    return () => {
+      console.log("unmount");
     }
+  }, [name]);
+
+  return (
+      <div>
+    hello
+    <button onClick={()=>Setname(name+1)}>{name}</button>
+  </div>
+  );
+
   }
 export default Hello;
