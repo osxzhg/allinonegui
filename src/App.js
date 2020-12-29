@@ -12,15 +12,21 @@ import { useHotkeys} from "react-hotkeys-hook";
 import Users from "./users/Users";
 import Hello from "./Hello";
 import { useForm } from './useForm';
+import { Input } from 'antd';
+import ProfilePage from './ProfilePage';
+import CustomTextInput from './CustomTextInput';
+import TextInputFunction from './TextInputFunction';
 
 
 function App() {
   const [count,setCount] = useState(0);
   const [showHello, setShowHello] = useState(true);
-  const [values,handleChange] = useForm({
+  const [profileValues,handleChange] = useForm({
     email: "",
     firstName: ""
   });
+  const [lastName,setLastName]=useState("");
+  const [items, setItems] = useState(["foo","bar","baz"]);
 
   useHotkeys('alt+1',()=>setCount(prevCount=>prevCount+1));
   useHotkeys('alt+2',()=>setCount(prevCount=>prevCount-1));
@@ -68,8 +74,22 @@ const element =
         <Button type="primary">Button</Button>
         Presssed {count} times.
         <p> Are You Smart?</p>
-					<input name="email" value={values.email} onKeyPress={handleAnswerChange} onChange={handleChange}/>
+					<input name="email" value={profileValues.email} onKeyPress={handleAnswerChange} onChange={handleChange}/>
+          <Input name="firstName" placeholder="First Name" value={profileValues.firstName} onChange={handleChange} />
+          <Input name="lastName" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)} />
+
 				<small> Press Y for Yes or N for No</small>
+        <ProfilePage user='Nick'></ProfilePage>
+
+        { items.map((item,index) => {
+        	return <h1 key={index}> {item} </h1>;
+         })}
+
+         <h1> ref</h1>
+         <CustomTextInput></CustomTextInput>
+         <TextInputFunction></TextInputFunction>
+         
+
     </div>
   );
 }
