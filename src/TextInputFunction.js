@@ -12,11 +12,11 @@ const TextInputFunction=(props)=> {
         <input
           type="text"
           ref={textInput} />
-        <input
-          type="button"
-          value="Focus the text input"
+        <button
           onClick={handleClick}
-        />
+        >
+          Focus the text input
+          </button>
       </div>
     );
   }

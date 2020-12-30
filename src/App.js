@@ -16,6 +16,8 @@ import { Input } from 'antd';
 import ProfilePage from './ProfilePage';
 import CustomTextInput from './CustomTextInput';
 import TextInputFunction from './TextInputFunction';
+import ControlledInputFunction from './ControlledInputFunction';
+import AutoFocusTextInput from './AutoFocusTextInput';
 
 
 function App() {
@@ -86,8 +88,11 @@ const element =
          })}
 
          <h1> ref</h1>
-         <CustomTextInput></CustomTextInput>
+         {/* <CustomTextInput></CustomTextInput> */}
          <TextInputFunction></TextInputFunction>
+         <ControlledInputFunction></ControlledInputFunction>
+         <h1> ref parent</h1>
+         <AutoFocusTextInput></AutoFocusTextInput>
          
 
     </div>

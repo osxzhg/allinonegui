@@ -1,16 +1,9 @@
 import React from 'react';
 class CustomTextInput extends React.Component {
-    constructor(props) {
-      super(props);
+  focusTextInput = ()=> {
+    this.textInput.focus();
+  }
 
-      this.focusTextInput = () => {
-        if (this.textInput) this.textInput.focus();
-      };
-    }
-  
-    componentDidMount() {
-      this.focusTextInput();
-    }
   
     render() {
 
