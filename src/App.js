@@ -17,7 +17,10 @@ import ProfilePage from './ProfilePage';
 import CustomTextInput from './CustomTextInput';
 import TextInputFunction from './TextInputFunction';
 import ControlledInputFunction from './ControlledInputFunction';
-import AutoFocusTextInput from './AutoFocusTextInput';
+import InputAutoFocusFunction from './InputAutoFocusFunction';
+import InputAutoFocusByParent from './InputAutoFocusByParent';
+import BlogFunction from './BlogFunction';
+import ContextProvider from './ContextWrapper';
 
 
 function App() {
@@ -48,14 +51,20 @@ const element =
     <h2>Good to see you here.</h2>
   </div>
 ;
+
+const posts = [
+  {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
+  {id: 2, title: 'Installation', content: 'You can install React from npm.'}
+];
+
   let output=process.env.NODE_ENV;
   let language = navigator.language;
   let winlanguage = window.navigator.language;
   let answer = "ans";
   moment.locale('zh-cn');
   return (
-    
-    <div className="App">
+   <ContextProvider>
+ <div className="App">
       <button onClick={()=> setShowHello(!showHello)}>toggle</button>
       {showHello && <Hello />}
         <Users title= "Users List"/>
@@ -91,11 +100,16 @@ const element =
          {/* <CustomTextInput></CustomTextInput> */}
          <TextInputFunction></TextInputFunction>
          <ControlledInputFunction></ControlledInputFunction>
-         <h1> ref parent</h1>
-         <AutoFocusTextInput></AutoFocusTextInput>
-         
+         <h1>Make input autofocus by parent component</h1>
+         <InputAutoFocusByParent></InputAutoFocusByParent>
+         <h1>Input AutoFocus when the component is mounted</h1>
+         <InputAutoFocusFunction />
+         <h1>Map an arrary to list</h1>
+         <BlogFunction posts={posts} />
 
     </div>
+   </ContextProvider> 
+   
   );
 }
 
