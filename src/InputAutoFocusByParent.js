@@ -1,10 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import CustomTextInput from './CustomTextInput';
 class InputAutoFocusByParent extends React.Component {
-    constructor(props) {
-      super(props);
-    //   this.textInput = React.createRef();
-    }
   
     componentDidMount() {
       this.textInput.focusTextInput();

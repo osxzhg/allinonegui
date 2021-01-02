@@ -7,6 +7,11 @@ const {state,dispatch} = useMyContext();
 useEffect(() => {
     dispatch({type: "outlook"});
 }, [])
+
+const person = {name: 'Nick' ,age: 43};
+const proAdd = {hobby: 'Jogging'};
+let newObje={...person};
+
 const sidebar = (
     <ul>
       {props.posts.map((post) =>
