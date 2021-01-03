@@ -22,7 +22,7 @@ import InputAutoFocusByParent from './InputAutoFocusByParent';
 import BlogFunction from './BlogFunction';
 import ContextProvider from './ContextWrapper';
 import MyEnhancedWrappedComponent from './HOCForFunctionComponent'
-import Hover from './DetectHoverFunction';
+import RenderProps from './RenderProps';
 
 
 function App() {
@@ -109,7 +109,7 @@ const posts = [
          <h1>Map an arrary to list</h1>
          <BlogFunction posts={posts} />
          <MyEnhancedWrappedComponent></MyEnhancedWrappedComponent>
-         
+         <RenderProps></RenderProps>
 
     </div>
    </ContextProvider> 
