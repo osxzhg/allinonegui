@@ -23,6 +23,7 @@ import BlogFunction from './BlogFunction';
 import ContextProvider from './ContextWrapper';
 import MyEnhancedWrappedComponent from './HOCForFunctionComponent'
 import RenderProps from './RenderProps';
+import LocalStorage from './LocalStorage';
 
 
 function App() {
@@ -98,9 +99,11 @@ const posts = [
         	return <h1 key={index}> {item} </h1>;
          })}
 
-         <h1> ref</h1>
-         {/* <CustomTextInput></CustomTextInput> */}
+         <h1>Custome Text Input</h1>
+         {/* <CustomTextInput></CustomTextInput>  */}
+         <h1>Text Input Function</h1>
          <TextInputFunction></TextInputFunction>
+         <h1>ControlledInputFunction</h1>
          <ControlledInputFunction></ControlledInputFunction>
          <h1>Make input autofocus by parent component</h1>
          <InputAutoFocusByParent></InputAutoFocusByParent>
@@ -110,6 +113,7 @@ const posts = [
          <BlogFunction posts={posts} />
          <MyEnhancedWrappedComponent></MyEnhancedWrappedComponent>
          <RenderProps></RenderProps>
+         <LocalStorage/>
 
     </div>
    </ContextProvider> 
