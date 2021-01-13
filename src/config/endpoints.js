@@ -1,5 +1,6 @@
 const ENDPOINTS = {
-    GET_TEMPERATURES : "/weatherforecast" 
+    GET_TEMPERATURES : "/weatherforecast",
+    GET_USER : "/api/commands"
   };
   export default ENDPOINTS;
   

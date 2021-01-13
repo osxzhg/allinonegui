@@ -24,6 +24,8 @@ import ContextProvider from './ContextWrapper';
 import MyEnhancedWrappedComponent from './HOCForFunctionComponent'
 import RenderProps from './RenderProps';
 import LocalStorage from './LocalStorage';
+import AuthWrapper from "./AuthWrapper";
+import Cookies from "js-cookie"
 
 
 function App() {
@@ -46,7 +48,8 @@ function App() {
 	}
 		else if (event.key === 'n') {
 			alert('The sky is your limit👀')
-	}
+  }
+  
 };
 const element = 
   <div>
@@ -67,6 +70,7 @@ const posts = [
   moment.locale('zh-cn');
   return (
    <ContextProvider>
+     <AuthWrapper>
  <div className="App">
       <button onClick={()=> setShowHello(!showHello)}>toggle</button>
       {showHello && <Hello />}
@@ -84,13 +88,14 @@ const posts = [
                   />
 
         </a>
-        <GetTemperature />
+        {/* <GetTemperature /> */}
         <Button type="primary">Button</Button>
         Presssed {count} times.
         <p> Are You Smart?</p>
 					<input name="email" value={profileValues.email} onKeyPress={handleAnswerChange} onChange={handleChange}/>
           <Input name="firstName" placeholder="First Name" value={profileValues.firstName} onChange={handleChange} />
           <Input name="lastName" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)} />
+
 
 				<small> Press Y for Yes or N for No</small>
         <ProfilePage user='Nick'></ProfilePage>
@@ -116,6 +121,7 @@ const posts = [
          <LocalStorage/>
 
     </div>
+    </AuthWrapper>
    </ContextProvider> 
    
   );
