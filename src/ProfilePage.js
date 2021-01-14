@@ -33,13 +33,33 @@ class ProfilePage extends Component {
           };
           const response = await fetch('http://localhost:5000/api/commands', requestOptions);
           const responseBody = await response.json();
-          
-
+        return true;
+      } catch (error) {
+      //   Notification.displayErrorMessage(<FormattedMessage id="account.notifications.errors.loginFailure" />);
+      console.log("login error");
   
-
+        return false;
+      }
+    };
+    getCommandById = async (id) => {
   
-      //   await this.checkToken();
-        
+      try {
+          let headers = new Headers();
+          const commandToken=Cookies.get("commandToken");
+  
+          headers.append('Content-Type', 'application/json');
+          headers.append('Accept', 'application/json');
+          headers.append('Authorization', `Bearer ${commandToken}`);
+          // headers.append('Origin','http://localhost:3000');
+      
+          const requestOptions = {
+              //mode: 'cors',
+              method: 'GET',
+              headers: headers,
+          };
+          const response = await fetch('/api/commands/'+id, requestOptions);
+          const responseBody = await response.json();
+          console.log(responseBody.howto);
         return true;
       } catch (error) {
       //   Notification.displayErrorMessage(<FormattedMessage id="account.notifications.errors.loginFailure" />);
@@ -54,6 +74,7 @@ class ProfilePage extends Component {
       return(
       <div>
       <button onClick={()=>this.getAllCommands()}>Get all commands</button>
+      <button onClick={()=>this.getCommandById(1)}>Get commands by id</button>
       <button type="text" onClick={()=>this.props.sendLogin("dd","ddd")}> sign in</button>
       </div>)
     }
