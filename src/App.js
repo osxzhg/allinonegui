@@ -9,8 +9,6 @@ import 'moment/locale/en-gb'
 import 'moment/locale/fr';
 import { useState} from "react";
 import { useHotkeys} from "react-hotkeys-hook";
-import Users from "./users/Users";
-import Hello from "./Hello";
 import { useForm } from './useForm';
 import { Input } from 'antd';
 import ProfilePage from './ProfilePage';
@@ -26,6 +24,9 @@ import RenderProps from './RenderProps';
 import LocalStorage from './LocalStorage';
 import AuthWrapper from "./AuthWrapper";
 import Cookies from "js-cookie"
+import HomePage from "./pages/Home/HomePage";
+import { Router } from "@reach/router";
+import ProdOrDev from "./pages/Environment/ProdOrDev";
 
 
 function App() {
@@ -71,56 +72,10 @@ const posts = [
   return (
    <ContextProvider>
      <AuthWrapper>
- <div className="App">
-      <button onClick={()=> setShowHello(!showHello)}>toggle</button>
-      {showHello && <Hello />}
-        <Users title= "Users List"/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {output}:{language}:{winlanguage}:{moment(1316116057189).fromNow()}
-          <br/>
-          <FormattedMessage
-                    id="app.title.original"
-                  />
-
-        </a>
-        {/* <GetTemperature /> */}
-        <Button type="primary">Button</Button>
-        Presssed {count} times.
-        <p> Are You Smart?</p>
-					<input name="email" value={profileValues.email} onKeyPress={handleAnswerChange} onChange={handleChange}/>
-          <Input name="firstName" placeholder="First Name" value={profileValues.firstName} onChange={handleChange} />
-          <Input name="lastName" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)} />
-
-
-				<small> Press Y for Yes or N for No</small>
-        <ProfilePage user='Nick'></ProfilePage>
-
-        { items.map((item,index) => {
-        	return <h1 key={index}> {item} </h1>;
-         })}
-
-         <h1>Custome Text Input</h1>
-         {/* <CustomTextInput></CustomTextInput>  */}
-         <h1>Text Input Function</h1>
-         <TextInputFunction></TextInputFunction>
-         <h1>ControlledInputFunction</h1>
-         <ControlledInputFunction></ControlledInputFunction>
-         <h1>Make input autofocus by parent component</h1>
-         <InputAutoFocusByParent></InputAutoFocusByParent>
-         <h1>Input AutoFocus when the component is mounted</h1>
-         <InputAutoFocusFunction />
-         <h1>Map an arrary to list</h1>
-         <BlogFunction posts={posts} />
-         <MyEnhancedWrappedComponent></MyEnhancedWrappedComponent>
-         <RenderProps></RenderProps>
-         <LocalStorage/>
-
-    </div>
+       <Router>
+         <HomePage path="/" exact />
+         <ProdOrDev path="/env" />
+       </Router>
     </AuthWrapper>
    </ContextProvider> 
    
