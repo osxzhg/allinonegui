@@ -110,7 +110,7 @@ const headers = {
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
         // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
-        headers.append('Origin','http://localhost:3000');
+        // headers.append('Origin','http://localhost:3000');
     
         const requestOptions = {
             mode: 'cors',

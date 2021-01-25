@@ -4,13 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import moment from "moment";
+import 'moment/locale/en-gb';
+import 'moment/locale/zh-cn';
+import 'moment/locale/fr';
 import { IntlProvider } from "react-intl";
 import message_en from "./i18n/transactions/en.json";
 import message_cn from "./i18n/transactions/cn.json";
 
-// moment.locale(navigator.language);
-moment.locale('fr');
-
+moment.locale(navigator.language);
 
 const messages = {
   "en": message_en,
@@ -18,7 +19,7 @@ const messages = {
 };
 
 
-let language = navigator.language.split(/[-_]/)[0];
+const language = navigator.language.split(/[-_]/)[0];
 
 
 ReactDOM.render(

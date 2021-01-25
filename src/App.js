@@ -4,9 +4,6 @@ import { GetTemperature } from './GetTemperature';
 import { Button } from 'antd';
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
-import 'moment/locale/zh-cn';
-import 'moment/locale/en-gb'
-import 'moment/locale/fr';
 import { useState} from "react";
 import { useHotkeys} from "react-hotkeys-hook";
 import { useForm } from './useForm';
@@ -27,6 +24,7 @@ import Cookies from "js-cookie"
 import HomePage from "./pages/Home/HomePage";
 import { Router } from "@reach/router";
 import ProdOrDev from "./pages/Environment/ProdOrDev";
+import Moment from "./pages/Moment/Moment";
 
 
 function App() {
@@ -64,17 +62,15 @@ const posts = [
   {id: 2, title: 'Installation', content: 'You can install React from npm.'}
 ];
 
-  let output=process.env.NODE_ENV;
-  let language = navigator.language;
-  let winlanguage = window.navigator.language;
-  let answer = "ans";
-  moment.locale('zh-cn');
   return (
    <ContextProvider>
      <AuthWrapper>
        <Router>
          <HomePage path="/" exact />
          <ProdOrDev path="/env" />
+         <Moment path="/moment" />
+         <GetTemperature path="/gettemperature"/>
+         <ProfilePage path="/profile"/>
        </Router>
     </AuthWrapper>
    </ContextProvider> 

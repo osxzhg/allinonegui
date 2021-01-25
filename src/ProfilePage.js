@@ -24,7 +24,7 @@ class ProfilePage extends Component {
           headers.append('Content-Type', 'application/json');
           headers.append('Accept', 'application/json');
           headers.append('Authorization', `Bearer ${commandToken}`);
-          headers.append('Origin','http://localhost:3000');
+          // headers.append('Origin','http://localhost:3000');
       
           const requestOptions = {
               mode: 'cors',
