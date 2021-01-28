@@ -25,6 +25,7 @@ import HomePage from "./pages/Home/HomePage";
 import { Router } from "@reach/router";
 import ProdOrDev from "./pages/Environment/ProdOrDev";
 import Moment from "./pages/Moment/Moment";
+import Login from "./pages/Login/Login";
 
 
 function App() {
@@ -71,6 +72,7 @@ const posts = [
          <Moment path="/moment" />
          <GetTemperature path="/gettemperature"/>
          <ProfilePage path="/profile"/>
+         <Login path="/login"/>
        </Router>
     </AuthWrapper>
    </ContextProvider> 
